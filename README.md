@@ -1,2 +1,2 @@
 # DuckxCopy
-Made by flet module on Python
+Built from the flet module on Python
