@@ -679,6 +679,8 @@ def main(page: ft.Page):
 
     page.window_title_bar_hidden = True
     page.window_title_bar_buttons_hidden = True
+
+    page.snack_bar = ft.SnackBar(content=ft.Text("Hello, world!"), action="Alright!")
     title = ft.Row(
             [
                 ft.WindowDragArea(ft.Container(ft.Text(""), bgcolor=ft.colors.with_opacity, padding=10), expand=True),
@@ -688,29 +690,25 @@ def main(page: ft.Page):
     
     text_ovelay = ft.Text(size=12, color="#ffffff")
     footer_icon = ft.Icon(ft.icons.WARNING_ROUNDED, color="#ffffff", size=15)
-    footer = ft.Container(ft.Row([footer_icon, text_ovelay]), width=page.window_width, bgcolor=palette_a[0], bottom=0, padding=ft.padding.only(left=10, top=5, right=5, bottom=5), animate_opacity=ft.animation.Animation(1000, ft.AnimationCurve.FAST_LINEAR_TO_SLOW_EASE_IN), opacity=0)
-    page.overlay.extend([title, footer])
+    #footer = ft.Container(ft.Row([footer_icon, text_ovelay]), width=page.window_width, bgcolor=palette_a[0], bottom=0, padding=ft.padding.only(left=10, top=5, right=5, bottom=5), animate_opacity=ft.animation.Animation(1000, ft.AnimationCurve.FAST_LINEAR_TO_SLOW_EASE_IN), opacity=0)
+    page.overlay.extend([title])
     
     global page_overlay
     def page_overlay(text, mode):
-        footer.opacity = 0
-        footer.width = page.window_width
         if mode == "alert":
-            footer.bgcolor = palette_a[3]
+            bgcolor = palette_a[3]
             footer_icon.name = ft.icons.WARNING_ROUNDED
         elif mode == "message":
-            footer.bgcolor = palette_a[2]
+            bgcolor = palette_a[2]
             footer_icon.name = ft.icons.MESSAGE_ROUNDED
         else:
             text = "Overlay error"
-            footer.bgcolor = palette_a[3]
+            bgcolor = palette_a[3]
             footer_icon.name = ft.icons.WARNING_ROUNDED
-        footer.opacity = 1
         text_ovelay.value = text
-        footer.update()
-        time.sleep(1.5)
-        footer.opacity = 0
-        footer.update()
+        page.snack_bar = ft.SnackBar(ft.Row([footer_icon, text_ovelay]), bgcolor=bgcolor)
+        page.snack_bar.open = True
+        page.update()
 
 
     def space():

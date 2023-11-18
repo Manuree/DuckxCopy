@@ -1,1 +1,1 @@
-{"task": {"TID_PH8BO9": {"name": "New Task", "tag": "#ac92eb", "command": ["DTD_1PBWMS", "FTD_5S0CXI"]}}, "command": {"DTD_1PBWMS": {"source": "D:/", "destination": "C:/"}, "FTD_5S0CXI": {"mode": "push", "source": ["Select file"], "destination": "C:/"}}}
+{"task": {}, "command": {}}
