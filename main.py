@@ -149,6 +149,7 @@ class Command_DTD(ft.UserControl):
                     path = self.destination
                     path = os.path.realpath(path)
                     os.startfile(path)
+                    print(self.destination)
                 except:
                     print("No path")
                     page_overlay("Incorrect path", "alert")
@@ -233,6 +234,8 @@ class Command_DTD(ft.UserControl):
         self.destination_label.value = self.edit_destination_label.value
         self.path_con.bgcolor = "transparent"
         self.update()
+        self.source = self.edit_source_label.value
+        self.destination = self.edit_destination_label.value
         task_data["command"][self.id]["source"] = self.source_label.value
         task_data["command"][self.id]["destination"] = self.destination_label.value
         saveJsonFile(task_data, "task_data", resource_path("assets/resources"))
@@ -712,9 +715,7 @@ def main(page: ft.Page):
 
 
     def space():
-        space = ft.Text(value=" ", color="#9BA4B5", size=5)
-        row = ft.Row(controls=[space],alignment=ft.MainAxisAlignment.CENTER)
-        page.add(row)
+        page.add(ft.Container(height=5))
     
     
 

@@ -1,1 +1,1 @@
-{"task": {}, "command": {}}
+{"task": {}, "command": {"DTD_IFR069": {"source": "D:/", "destination": "C:/"}, "FTD_UNOAGE": {"mode": "push", "source": ["D:\\_Way\\destination\\_0a8bc297-6367-41a2-a2ea-aa9e683f883c.jpg", "D:\\_Way\\destination\\_0bf9cb6e-2e7f-43e6-838e-c9962742a293.jpg", "D:\\_Way\\destination\\_3ac8d964-8252-4c50-9508-594dacff27bf.jpg", "D:\\_Way\\destination\\_5ba2146f-14d7-4aef-90ea-d62c33df96a0.jpg"], "destination": "D:\\_Way\\destination"}}}
